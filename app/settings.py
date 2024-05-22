@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = True if env("DEBUG") == "True" else False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'sadra.nl']
+ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", "sadra.nl"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -51,7 +51,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "app.wsgi.application"
+WSGI_APPLICATION = "app.wsgi.app"
 
 SECRET_KEY = env("SECRET_KEY")
 
