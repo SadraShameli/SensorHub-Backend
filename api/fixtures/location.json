@@ -1,0 +1,22 @@
+[
+  {
+    "model": "api.location",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-05-09T01:04:53.639Z",
+      "name": "Rijswijk",
+      "location_name": "Test Location",
+      "location_id": 10001
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-05-09T01:04:59.820Z",
+      "name": "Rotterdam",
+      "location_name": "Test Location 2",
+      "location_id": 10002
+    }
+  }
+]

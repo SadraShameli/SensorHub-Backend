@@ -9,6 +9,8 @@ psycopg2 = "*"
 django-environ = "*"
 pyyaml = "*"
 django-rest-framework = "*"
+django-debug-toolbar = "*"
+pydub = "*"
 
 [dev-packages]
 

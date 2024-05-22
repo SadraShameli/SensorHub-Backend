@@ -1,0 +1,72 @@
+[
+  {
+    "model": "api.reading",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-05-11T22:51:30.670Z",
+      "value": 29.17,
+      "sensor": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-05-11T22:51:36.932Z",
+      "value": 57.64,
+      "sensor": 2,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-05-11T22:51:46.189Z",
+      "value": 66.06,
+      "sensor": 3,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-05-11T22:51:53.917Z",
+      "value": 1004.46,
+      "sensor": 4,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-05-11T22:52:03.430Z",
+      "value": 73.27,
+      "sensor": 5,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-05-11T22:52:08.706Z",
+      "value": 74.0,
+      "sensor": 6,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-05-11T22:52:12.892Z",
+      "value": 2731.0,
+      "sensor": 7,
+      "device": 1
+    }
+  }
+]

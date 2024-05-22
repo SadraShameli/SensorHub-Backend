@@ -1,0 +1,20 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$zCIRy9MciTcm1In2Z6ZfpS$FU+J9LQw7XO6aeUHlMm9Ei6IoATUntKUKSWlKePckEY=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "sadra",
+      "first_name": "",
+      "last_name": "",
+      "email": "sadra.shameli1@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-12T10:39:45.752Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

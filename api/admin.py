@@ -1,11 +1,12 @@
 from django.contrib import admin
-from .models import Sensor, ReadingRecord, Device, Location
+from .models import Sensor, Location, Device, Reading, Recording
 
 admin.site.register(
     [
         Sensor,
-        ReadingRecord,
-        Device,
         Location,
+        Device,
+        Reading,
+        Recording,
     ]
 )

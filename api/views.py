@@ -1,35 +1,71 @@
+
+from datetime import datetime
+from django.shortcuts import get_object_or_404
+from django.core.files.base import ContentFile
+from rest_framework import status
+from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+
+from api.utils import wav_byte_array_to_mp3_normalized
+from . import models, serializers
 
 
-from . import models
-from . import serializers
+class SensorViewSet(viewsets.ModelViewSet):
+    queryset = models.Sensor.objects.all()
+    serializer_class = serializers.SensorSerializer
 
 
-@api_view(["GET"])
-def getRoutes(request):
-    routes = [
-        "GET /getDeviceProperties/:id",
-        "POST /registerReadingRecord/",
-    ]
-    return Response(routes)
+class LocationViewSet(viewsets.ModelViewSet):
+    queryset = models.Location.objects.all()
+    serializer_class = serializers.LocationSerializer
 
-
-@api_view(["GET"])
-def getDeviceProperties(request, device_id):
-    try:
-        device = models.Device.objects.get(device_id=device_id)
-        serializer = serializers.DeviceSerializer(device, many=False)
+    def retrieve(self, request, pk):
+        queryset = models.Location.objects.all()
+        location = get_object_or_404(queryset, location_id=pk)
+        serializer = self.get_serializer(location)
         return Response(serializer.data)
 
-    except models.Device.DoesNotExist:
-        return Response({"error": f"Device Id {device_id} does not exist"}, status=404)
+
+class DeviceViewSet(viewsets.ModelViewSet):
+    queryset = models.Device.objects.all()
+    serializer_class = serializers.DeviceSerializer
+
+    def retrieve(self, request, pk):
+        queryset = models.Device.objects.all()
+        device = get_object_or_404(queryset, device_id=pk)
+        serializer = self.get_serializer(device)
+        return Response(serializer.data)
 
 
-@api_view(["POST"])
-def registerReadingRecord(request):
-    readingRecord = serializers.ReadingRecordSerializer(data=request.data)
+class ReadingViewSet(viewsets.ModelViewSet):
+    queryset = models.Reading.objects.all()
+    serializer_class = serializers.ReadingSerializer
 
-    if readingRecord.is_valid(raise_exception=True):
-        readingRecord.save()
-        return Response(status=200)
+    def create(self, request):
+        readingCreateSerializer = serializers.ReadingCreateSerializer(
+            data=request.data)
+        readingCreateSerializer.is_valid(raise_exception=True)
+        data = readingCreateSerializer.validated_data
+
+        for sensor in data["sensors"]:
+            reading = models.Reading.objects.create(
+                value=request.data["sensors"][f"{sensor.sensor_id}"], device=data["device_id"], sensor=sensor)
+            reading.save()
+
+        return Response(status=status.HTTP_201_CREATED)
+
+
+class RecordingViewSet(viewsets.ModelViewSet):
+    queryset = models.Recording.objects.all()
+    serializer_class = serializers.RecordingSerializer
+
+    def create(self, request, pk):
+        data = request.stream.body
+        recording = wav_byte_array_to_mp3_normalized(request.stream.body)
+
+        recordingCreateSerializer = serializers.RecordingCreateSerializer(
+            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y  %H_%M")}.wav"), "device_id": pk})
+        recordingCreateSerializer.is_valid(raise_exception=True)
+        recordingCreateSerializer.save()
+
+        return Response(status=status.HTTP_201_CREATED)

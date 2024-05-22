@@ -1,41 +1,69 @@
 from rest_framework import serializers
+from rest_framework.serializers import Serializer, ModelSerializer
+
+from django.db import models
 from . import models
 
 
-class DeviceSerializer(serializers.ModelSerializer):
+class SensorSerializer(ModelSerializer):
+    class Meta:
+        model = models.Sensor
+        fields = "__all__"
+
+
+class LocationSerializer(ModelSerializer):
+    class Meta:
+        model = models.Location
+        fields = "__all__"
+
+
+class DeviceSerializer(ModelSerializer):
     class Meta:
         model = models.Device
         fields = "__all__"
 
 
-class ReadingRecordSerializer(serializers.ModelSerializer):
+class ReadingSerializer(ModelSerializer):
+    class Meta:
+        model = models.Reading
+        fields = "__all__"
+
+
+class ReadingCreateSerializer(Serializer):
     device_id = serializers.IntegerField(required=True)
     sensors = serializers.JSONField(required=True)
 
     class Meta:
-        model = models.ReadingRecord
-        fields = ["device_id", "sensors"]
+        fields = "__all__"
 
-    def create(self, data):
-        device_id = data.get("device_id")
-        sensors = data.get("sensors")
-
+    def validate_device_id(self, device_id):
         try:
-            device = models.Device.objects.get(device_id=device_id)
+            return models.Device.objects.get(device_id=device_id)
+        except Exception as e:
+            raise serializers.ValidationError(e)
 
-            if not len(sensors):
-                raise serializers.ValidationError(
-                    {"error": f"No sensor value provided"}
-                )
+    def validate_sensors(self, sensors):
+        try:
+            return [models.Sensor.objects.get(sensor_id=sensor) for sensor in sensors]
+        except Exception as e:
+            raise serializers.ValidationError(e)
 
-            for key, value in sensors.items():
-                readingRecord = models.ReadingRecord.objects.create(
-                    value=value, sensor_id=key, device_id=device.id
-                )
 
-            return readingRecord
+class RecordingSerializer(ModelSerializer):
+    class Meta:
+        model = models.Recording
+        fields = "__all__"
 
-        except models.Device.DoesNotExist:
-            raise serializers.ValidationError(
-                {"error": f"Device Id {device_id} does not exist"}
-            )
+
+class RecordingCreateSerializer(Serializer):
+    device_id = serializers.IntegerField(required=True)
+    file = serializers.FileField(required=True)
+
+    class Meta:
+        fields = "__all__"
+
+    def validate_device_id(self, device_id):
+        try:
+            return models.Device.objects.get(device_id=device_id)
+        except Exception as e:
+            raise serializers.ValidationError(e)
