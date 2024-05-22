@@ -1,6 +1,6 @@
 
 from datetime import datetime
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.core.files.base import ContentFile
 from rest_framework import status
 from rest_framework import viewsets
@@ -8,6 +8,9 @@ from rest_framework.response import Response
 
 from api.utils import wav_byte_array_to_mp3_normalized
 from . import models, serializers
+
+def index(request):
+    return render(request, 'index.html')
 
 
 class SensorViewSet(viewsets.ModelViewSet):

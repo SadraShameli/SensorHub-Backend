@@ -6,11 +6,6 @@ environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
 DEBUG = True if env("DEBUG") == "True" else False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'sadra.nl']
