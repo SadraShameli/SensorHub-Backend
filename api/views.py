@@ -49,7 +49,7 @@ class ReadingViewSet(viewsets.ModelViewSet):
 
         for sensor in data["sensors"]:
             reading = models.Reading.objects.create(
-                value=request.data["sensors"][f"{sensor.sensor_id}"], device=data["device_id"], sensor=sensor)
+                value=request.data["sensors"][f"{sensor.id}"], device=data["device_id"], sensor=sensor)
             reading.save()
 
         return Response(status=status.HTTP_201_CREATED)
@@ -60,11 +60,8 @@ class RecordingViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.RecordingSerializer
 
     def create(self, request, pk):
-        data = request.stream.body
-        recording = wav_byte_array_to_mp3_normalized(request.stream.body)
-
         recordingCreateSerializer = serializers.RecordingCreateSerializer(
-            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y  %H_%M")}.wav"), "device_id": pk})
+            data={"file": ContentFile(request.stream.body, name=f"{datetime.now().strftime("%B %d, %Y  %H_%M")}.wav"), "device_id": pk})
         recordingCreateSerializer.is_valid(raise_exception=True)
         recordingCreateSerializer.save()
 

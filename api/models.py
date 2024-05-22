@@ -37,6 +37,7 @@ class Device(models.Model):
 class Reading(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     value = models.FloatField()
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
 
     def __str__(self):

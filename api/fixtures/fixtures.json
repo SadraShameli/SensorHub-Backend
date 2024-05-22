@@ -207,6 +207,77 @@
       "sensor": [7]
     }
   },
+
+  {
+    "model": "api.reading",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-05-22T14:34:49.296Z",
+      "value": 15.0,
+      "sensor": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-05-22T14:35:51.790Z",
+      "value": 50.0,
+      "sensor": 2,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-05-22T14:36:03.658Z",
+      "value": 1008.0,
+      "sensor": 3,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-05-22T14:36:15.002Z",
+      "value": 330000.0,
+      "sensor": 4,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-05-22T14:36:20.451Z",
+      "value": 15.0,
+      "sensor": 5,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-05-22T14:36:29.290Z",
+      "value": 73.0,
+      "sensor": 6,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-05-22T14:36:41.511Z",
+      "value": 2357.0,
+      "sensor": 8,
+      "device": 1
+    }
+  },
   {
     "model": "api.recording",
     "pk": 1,

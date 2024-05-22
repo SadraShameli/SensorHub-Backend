@@ -44,7 +44,8 @@ class ReadingCreateSerializer(Serializer):
 
     def validate_sensors(self, sensors):
         try:
-            return [models.Sensor.objects.get(sensor_id=sensor) for sensor in sensors]
+            return [models.Sensor.objects.get(id=sensor)
+                    for sensor in sensors]
         except Exception as e:
             raise serializers.ValidationError(e)
 
@@ -67,3 +68,6 @@ class RecordingCreateSerializer(Serializer):
             return models.Device.objects.get(device_id=device_id)
         except Exception as e:
             raise serializers.ValidationError(e)
+
+    def create(self, validated_data):
+        return models.Recording.objects.create(file=validated_data["file"], device=validated_data["device_id"])
