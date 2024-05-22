@@ -5,13 +5,13 @@ name = "pypi"
 
 [packages]
 django = "*"
-psycopg2 = "*"
 django-environ = "*"
 pyyaml = "*"
 django-rest-framework = "*"
 django-debug-toolbar = "*"
 pydub = "*"
 psycopg2-binary = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
