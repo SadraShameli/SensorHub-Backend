@@ -38,7 +38,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "devices.urls"
+ROOT_URLCONF = "app.urls"
 
 TEMPLATES = [
     {
@@ -56,7 +56,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "devices.wsgi.application"
+WSGI_APPLICATION = "app.wsgi.application"
 
 SECRET_KEY = env("SECRET_KEY")
 
