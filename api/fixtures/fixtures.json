@@ -1,0 +1,237 @@
+[
+  {
+    "model": "api.sensor",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-05-22T13:56:41.137Z",
+      "name": "Temperature",
+      "unit": "C",
+      "enabled": true
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-05-22T13:56:57.942Z",
+      "name": "Humidity",
+      "unit": "%",
+      "enabled": true
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-05-22T13:57:05.434Z",
+      "name": "Air Pressure",
+      "unit": "hPa",
+      "enabled": true
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-05-22T13:57:10.578Z",
+      "name": "Gas Resistance",
+      "unit": "Ohms",
+      "enabled": false
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-05-22T13:57:39.213Z",
+      "name": "Altitude",
+      "unit": "m",
+      "enabled": false
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-05-22T13:57:47.733Z",
+      "name": "Loudness",
+      "unit": "dB",
+      "enabled": true
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-05-22T13:57:54.317Z",
+      "name": "Recording",
+      "unit": "wav",
+      "enabled": false
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-05-22T13:58:02.416Z",
+      "name": "RPM",
+      "unit": "rpm/min",
+      "enabled": false
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-05-22T13:56:26.025Z",
+      "name": "Rijswijk",
+      "location_name": "Test Location",
+      "location_id": 10001
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-05-22T13:58:36.818Z",
+      "name": "Rotterdam",
+      "location_name": "Test Location 2",
+      "location_id": 10002
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-05-22T13:58:52.676Z",
+      "name": "Delft",
+      "location_name": "Test Location 3",
+      "location_id": 10003
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-05-22T13:59:02.233Z",
+      "name": "Den Haag",
+      "location_name": "Test Location 4",
+      "location_id": 10004
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-05-22T13:59:09.951Z",
+      "name": "Amsterdam",
+      "location_name": "Test Location 5",
+      "location_id": 10005
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-05-22T14:00:13.520Z",
+      "name": "Test Device 1",
+      "device_id": 20001,
+      "register_interval": 300,
+      "loudness_threshold": 70,
+      "location": 1,
+      "sensor": [1, 2, 3, 4, 5, 6, 8]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-05-22T14:03:23.906Z",
+      "name": "Test Device 2",
+      "device_id": 20002,
+      "register_interval": 300,
+      "loudness_threshold": 70,
+      "location": 1,
+      "sensor": [7]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-05-22T14:03:36.804Z",
+      "name": "Test Device 3",
+      "device_id": 20003,
+      "register_interval": 300,
+      "loudness_threshold": 70,
+      "location": 2,
+      "sensor": [1, 2, 3, 6]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-05-22T14:04:17.313Z",
+      "name": "Test Device 4",
+      "device_id": 20004,
+      "register_interval": 300,
+      "loudness_threshold": 70,
+      "location": 3,
+      "sensor": [1, 2, 3, 6]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-05-22T14:04:34.160Z",
+      "name": "Test Device 5",
+      "device_id": 20005,
+      "register_interval": 300,
+      "loudness_threshold": 70,
+      "location": 4,
+      "sensor": [1, 2, 3, 6]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-05-22T14:05:07.254Z",
+      "name": "Test Device 6",
+      "device_id": 20006,
+      "register_interval": 300,
+      "loudness_threshold": 70,
+      "location": 5,
+      "sensor": [7]
+    }
+  },
+  {
+    "model": "api.recording",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-05-22T14:06:27.026Z",
+      "file": "recordings/1.wav",
+      "device": 2
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$zCIRy9MciTcm1In2Z6ZfpS$FU+J9LQw7XO6aeUHlMm9Ei6IoATUntKUKSWlKePckEY=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "sadra",
+      "first_name": "Sadra",
+      "last_name": "Shameli",
+      "email": "sadra.shameli1@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-12T10:39:45.752Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
