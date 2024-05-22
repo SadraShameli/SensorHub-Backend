@@ -60,8 +60,9 @@ class RecordingViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.RecordingSerializer
 
     def create(self, request, pk):
+        recording = wav_byte_array_to_mp3_normalized(request.stream.body)
         recordingCreateSerializer = serializers.RecordingCreateSerializer(
-            data={"file": ContentFile(request.stream.body, name=f"{datetime.now().strftime("%B %d, %Y  %H_%M")}.wav"), "device_id": pk})
+            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y  %H_%M")}.mp3"), "device_id": pk})
         recordingCreateSerializer.is_valid(raise_exception=True)
         recordingCreateSerializer.save()
 
