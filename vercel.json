@@ -1,8 +1,7 @@
 {
-  "routes": [
+  "builds": [
     {
-      "src": "/(.*)",
-      "dest": "app/wsgi.py",
+      "src": "app/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "runtime": "python3.12",
@@ -10,12 +9,21 @@
       }
     },
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "static"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app/wsgi.py"
     },
     {
-      "src": "/media/(.*)",
-      "dest": "/media/$1"
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
     }
   ]
 }

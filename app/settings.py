@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = True if env("DEBUG") == "True" else False
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", "sadra.nl"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app", ".now.sh", "sadra.nl"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -92,6 +92,8 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_URL = "static/"
+
+STATICFILES_DIR = BASE_DIR / "static"
 
 STATIC_ROOT = BASE_DIR / "static"
 
