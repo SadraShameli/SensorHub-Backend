@@ -12,6 +12,7 @@ django-debug-toolbar = "*"
 pydub = "*"
 whitenoise = "*"
 psycopg2 = "*"
+gunicorn = "*"
 
 [dev-packages]
 
