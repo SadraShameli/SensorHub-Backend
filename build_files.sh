@@ -1,2 +1,10 @@
-pip install -r requirements.txt
-python manage.py collectstatic
+# Build the project
+echo "Building the project..."
+pytho3.10 -m pip install -r requirements.txt
+
+echo "Make Migration..."
+python manage.py makemigrations --noinput
+python manage.py migrate --noinput
+
+echo "Collect Static..."
+python manage.py collectstatic --noinput --clear
