@@ -1,3 +1,4 @@
+import os
 import environ
 from pathlib import Path
 
@@ -52,7 +53,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "app.wsgi.app"
+WSGI_APPLICATION = "app.wsgi.application"
 
 SECRET_KEY = env("SECRET_KEY")
 
@@ -94,9 +95,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_URL = "static/"
 
-STATICFILES_DIR = BASE_DIR / "static"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
