@@ -2,7 +2,12 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app/wsgi.py"
+      "dest": "app/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.12",
+        "maxLambdaSize": "15mb"
+      }
     },
     {
       "src": "/static/(.*)",
