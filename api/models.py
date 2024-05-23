@@ -46,7 +46,6 @@ class Reading(models.Model):
 
 class Recording(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    device = models.ForeignKey(Device, on_delete=models.CASCADE)
     file = models.FileField(upload_to='recordings/')
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
 
