@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = env("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app", ".now.sh", "sadra.nl"]
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
