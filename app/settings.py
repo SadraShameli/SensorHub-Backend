@@ -6,7 +6,7 @@ environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = True if env("DEBUG") == "True" else False
+DEBUG = env("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app", ".now.sh", "sadra.nl"]
 
