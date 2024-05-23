@@ -1,6 +1,5 @@
-# Build the project
 echo "Building the project..."
-pytho3.10 -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 echo "Make Migration..."
 python manage.py makemigrations --noinput
