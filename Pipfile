@@ -10,7 +10,6 @@ pyyaml = "*"
 django-rest-framework = "*"
 django-debug-toolbar = "*"
 pydub = "*"
-psycopg2-binary = "*"
 whitenoise = "*"
 psycopg2 = "*"
 
