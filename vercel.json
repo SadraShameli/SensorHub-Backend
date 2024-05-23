@@ -1,26 +1,23 @@
 {
+  "buildCommand": "sh vercel.sh",
   "builds": [
     {
       "src": "app/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "30mb", "runtime": "python3.12" }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
       "config": {
-        "distDir": "static"
+        "maxLambdaSize": "30mb",
+        "runtime": "python3.12"
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "source": "/(.*)",
+      "destination": "app/wsgi.py"
     },
     {
-      "src": "/(.*)",
-      "dest": "app/wsgi.py"
+      "source": "/static/(.*)",
+      "destination": "/static/$1"
     }
   ]
 }
