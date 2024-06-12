@@ -52,8 +52,11 @@ class ReadingViewSet(viewsets.ModelViewSet):
 
         for sensor in data["sensors"]:
             reading = models.Reading.objects.create(
-                value=request.data["sensors"][f"{sensor.id}"], device=data["device_id"], sensor=sensor)
-            reading.save()
+                value=request.data["sensors"][f"{sensor.id}"], sensor=sensor, device_id=data["device_id"], location_id=readingCreateSerializer.location_id)
+            try:
+                reading.save()
+            except Exception as e:
+                return Response(data={"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response(status=status.HTTP_201_CREATED)
 
@@ -65,8 +68,12 @@ class RecordingViewSet(viewsets.ModelViewSet):
     def create(self, request, pk):
         recording = wav_byte_array_to_mp3_normalized(request.stream.body)
         recordingCreateSerializer = serializers.RecordingCreateSerializer(
-            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y  %H_%M")}.mp3"), "device_id": pk})
+            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y - %H.%M")}.mp3"), "device_id": pk})
         recordingCreateSerializer.is_valid(raise_exception=True)
-        recordingCreateSerializer.save()
+
+        try:
+            recordingCreateSerializer.save()
+        except Exception as e:
+            return Response(data={"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response(status=status.HTTP_201_CREATED)

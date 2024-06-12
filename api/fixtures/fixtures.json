@@ -1,297 +1,405 @@
 [
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 1,
     "fields": {
-      "created_at": "2024-05-22T13:56:41.137Z",
-      "name": "Temperature",
-      "unit": "C",
-      "enabled": true
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
     }
   },
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 2,
     "fields": {
-      "created_at": "2024-05-22T13:56:57.942Z",
-      "name": "Humidity",
-      "unit": "%",
-      "enabled": true
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
     }
   },
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 3,
     "fields": {
-      "created_at": "2024-05-22T13:57:05.434Z",
-      "name": "Air Pressure",
-      "unit": "hPa",
-      "enabled": true
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
     }
   },
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 4,
     "fields": {
-      "created_at": "2024-05-22T13:57:10.578Z",
-      "name": "Gas Resistance",
-      "unit": "Ohms",
-      "enabled": false
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
     }
   },
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 5,
     "fields": {
-      "created_at": "2024-05-22T13:57:39.213Z",
-      "name": "Altitude",
-      "unit": "m",
-      "enabled": false
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
     }
   },
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 6,
     "fields": {
-      "created_at": "2024-05-22T13:57:47.733Z",
-      "name": "Loudness",
-      "unit": "dB",
-      "enabled": true
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
     }
   },
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 7,
     "fields": {
-      "created_at": "2024-05-22T13:57:54.317Z",
-      "name": "Recording",
-      "unit": "mp3",
-      "enabled": false
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
     }
   },
   {
-    "model": "api.sensor",
+    "model": "auth.permission",
     "pk": 8,
     "fields": {
-      "created_at": "2024-05-22T13:58:02.416Z",
-      "name": "RPM",
-      "unit": "rpm/min",
-      "enabled": false
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
     }
   },
   {
-    "model": "api.location",
-    "pk": 1,
+    "model": "auth.permission",
+    "pk": 9,
     "fields": {
-      "created_at": "2024-05-22T13:56:26.025Z",
-      "name": "Rijswijk",
-      "location_name": "Test Location 1",
-      "location_id": 10001
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
     }
   },
   {
-    "model": "api.location",
-    "pk": 2,
+    "model": "auth.permission",
+    "pk": 10,
     "fields": {
-      "created_at": "2024-05-22T13:58:36.818Z",
-      "name": "Rotterdam",
-      "location_name": "Test Location 2",
-      "location_id": 10002
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
     }
   },
   {
-    "model": "api.location",
-    "pk": 3,
+    "model": "auth.permission",
+    "pk": 11,
     "fields": {
-      "created_at": "2024-05-22T13:58:52.676Z",
-      "name": "Delft",
-      "location_name": "Test Location 3",
-      "location_id": 10003
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
     }
   },
   {
-    "model": "api.location",
-    "pk": 4,
+    "model": "auth.permission",
+    "pk": 12,
     "fields": {
-      "created_at": "2024-05-22T13:59:02.233Z",
-      "name": "Den Haag",
-      "location_name": "Test Location 4",
-      "location_id": 10004
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
     }
   },
   {
-    "model": "api.location",
-    "pk": 5,
+    "model": "auth.permission",
+    "pk": 13,
     "fields": {
-      "created_at": "2024-05-22T13:59:09.951Z",
-      "name": "Amsterdam",
-      "location_name": "Test Location 5",
-      "location_id": 10005
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
     }
   },
   {
-    "model": "api.device",
-    "pk": 1,
+    "model": "auth.permission",
+    "pk": 14,
     "fields": {
-      "created_at": "2024-05-22T14:00:13.520Z",
-      "name": "Test Device 1",
-      "device_id": 20001,
-      "register_interval": 300,
-      "loudness_threshold": 70,
-      "location": 1,
-      "sensor": [1, 2, 3, 6]
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
     }
   },
   {
-    "model": "api.device",
-    "pk": 2,
+    "model": "auth.permission",
+    "pk": 15,
     "fields": {
-      "created_at": "2024-05-22T14:03:23.906Z",
-      "name": "Test Device 2",
-      "device_id": 20002,
-      "register_interval": 300,
-      "loudness_threshold": 70,
-      "location": 1,
-      "sensor": [7]
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
     }
   },
   {
-    "model": "api.device",
-    "pk": 3,
+    "model": "auth.permission",
+    "pk": 16,
     "fields": {
-      "created_at": "2024-05-22T14:03:36.804Z",
-      "name": "Test Device 3",
-      "device_id": 20003,
-      "register_interval": 300,
-      "loudness_threshold": 70,
-      "location": 2,
-      "sensor": [1, 2, 3, 6]
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
     }
   },
   {
-    "model": "api.device",
-    "pk": 4,
+    "model": "auth.permission",
+    "pk": 17,
     "fields": {
-      "created_at": "2024-05-22T14:04:17.313Z",
-      "name": "Test Device 4",
-      "device_id": 20004,
-      "register_interval": 300,
-      "loudness_threshold": 70,
-      "location": 3,
-      "sensor": [1, 2, 3, 6]
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
     }
   },
   {
-    "model": "api.device",
-    "pk": 5,
+    "model": "auth.permission",
+    "pk": 18,
     "fields": {
-      "created_at": "2024-05-22T14:04:34.160Z",
-      "name": "Test Device 5",
-      "device_id": 20005,
-      "register_interval": 300,
-      "loudness_threshold": 70,
-      "location": 4,
-      "sensor": [1, 2, 3, 6]
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
     }
   },
   {
-    "model": "api.device",
-    "pk": 6,
+    "model": "auth.permission",
+    "pk": 19,
     "fields": {
-      "created_at": "2024-05-22T14:05:07.254Z",
-      "name": "Test Device 6",
-      "device_id": 20006,
-      "register_interval": 300,
-      "loudness_threshold": 70,
-      "location": 5,
-      "sensor": [7]
-    }
-  },
-
-  {
-    "model": "api.reading",
-    "pk": 1,
-    "fields": {
-      "created_at": "2024-05-22T14:34:49.296Z",
-      "value": 15.0,
-      "sensor": 1,
-      "device": 1
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
     }
   },
   {
-    "model": "api.reading",
-    "pk": 2,
+    "model": "auth.permission",
+    "pk": 20,
     "fields": {
-      "created_at": "2024-05-22T14:35:51.790Z",
-      "value": 50.0,
-      "sensor": 2,
-      "device": 1
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
     }
   },
   {
-    "model": "api.reading",
-    "pk": 3,
+    "model": "auth.permission",
+    "pk": 21,
     "fields": {
-      "created_at": "2024-05-22T14:36:03.658Z",
-      "value": 1008.0,
-      "sensor": 3,
-      "device": 1
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
     }
   },
   {
-    "model": "api.reading",
-    "pk": 4,
+    "model": "auth.permission",
+    "pk": 22,
     "fields": {
-      "created_at": "2024-05-22T14:36:15.002Z",
-      "value": 330000.0,
-      "sensor": 4,
-      "device": 1
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
     }
   },
   {
-    "model": "api.reading",
-    "pk": 5,
+    "model": "auth.permission",
+    "pk": 23,
     "fields": {
-      "created_at": "2024-05-22T14:36:20.451Z",
-      "value": 15.0,
-      "sensor": 5,
-      "device": 1
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
     }
   },
   {
-    "model": "api.reading",
-    "pk": 6,
+    "model": "auth.permission",
+    "pk": 24,
     "fields": {
-      "created_at": "2024-05-22T14:36:29.290Z",
-      "value": 73.0,
-      "sensor": 6,
-      "device": 1
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
     }
   },
   {
-    "model": "api.reading",
-    "pk": 7,
+    "model": "auth.permission",
+    "pk": 25,
     "fields": {
-      "created_at": "2024-05-22T14:36:41.511Z",
-      "value": 2357.0,
-      "sensor": 8,
-      "device": 1
+      "name": "Can add location",
+      "content_type": 7,
+      "codename": "add_location"
     }
   },
   {
-    "model": "api.recording",
-    "pk": 1,
+    "model": "auth.permission",
+    "pk": 26,
     "fields": {
-      "created_at": "2024-05-22T14:06:27.026Z",
-      "file": "recordings/1.mp3",
-      "device": 2
+      "name": "Can change location",
+      "content_type": 7,
+      "codename": "change_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete location",
+      "content_type": 7,
+      "codename": "delete_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view location",
+      "content_type": 7,
+      "codename": "view_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add sensor",
+      "content_type": 8,
+      "codename": "add_sensor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change sensor",
+      "content_type": 8,
+      "codename": "change_sensor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete sensor",
+      "content_type": 8,
+      "codename": "delete_sensor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view sensor",
+      "content_type": 8,
+      "codename": "view_sensor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add device",
+      "content_type": 9,
+      "codename": "add_device"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change device",
+      "content_type": 9,
+      "codename": "change_device"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete device",
+      "content_type": 9,
+      "codename": "delete_device"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view device",
+      "content_type": 9,
+      "codename": "view_device"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add recording",
+      "content_type": 10,
+      "codename": "add_recording"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change recording",
+      "content_type": 10,
+      "codename": "change_recording"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete recording",
+      "content_type": 10,
+      "codename": "delete_recording"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view recording",
+      "content_type": 10,
+      "codename": "view_recording"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add reading",
+      "content_type": 11,
+      "codename": "add_reading"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change reading",
+      "content_type": 11,
+      "codename": "change_reading"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete reading",
+      "content_type": 11,
+      "codename": "delete_reading"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view reading",
+      "content_type": 11,
+      "codename": "view_reading"
     }
   },
   {
     "model": "auth.user",
     "pk": 1,
     "fields": {
-      "password": "pbkdf2_sha256$720000$zCIRy9MciTcm1In2Z6ZfpS$FU+J9LQw7XO6aeUHlMm9Ei6IoATUntKUKSWlKePckEY=",
+      "password": "pbkdf2_sha256$720000$y63xYzUSd2xHBuTuGyEDFn$0hhQMEfEy2Ti5KgjEVHv0hKTnGy+pNG9WYdNv1GFgD8=",
       "last_login": null,
       "is_superuser": true,
       "username": "sadra",
@@ -300,9 +408,351 @@
       "email": "sadra.shameli1@gmail.com",
       "is_staff": true,
       "is_active": true,
-      "date_joined": "2024-05-12T10:39:45.752Z",
+      "date_joined": "2024-06-12T20:09:11.763Z",
       "groups": [],
       "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": { "app_label": "admin", "model": "logentry" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": { "app_label": "auth", "model": "permission" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": { "app_label": "auth", "model": "group" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": { "app_label": "auth", "model": "user" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": { "app_label": "contenttypes", "model": "contenttype" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": { "app_label": "sessions", "model": "session" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": { "app_label": "api", "model": "location" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": { "app_label": "api", "model": "sensor" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": { "app_label": "api", "model": "device" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": { "app_label": "api", "model": "recording" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": { "app_label": "api", "model": "reading" }
+  },
+  {
+    "model": "api.location",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-06-12T18:43:50.404Z",
+      "name": "Test Location 1",
+      "location_name": "Rijswijk",
+      "location_id": 10001
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-06-12T18:47:36.358Z",
+      "name": "Test Location 2",
+      "location_name": "Rotterdam",
+      "location_id": 10002
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-06-12T18:48:02.098Z",
+      "name": "Test Location 3",
+      "location_name": "Den Haag",
+      "location_id": 10003
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-06-12T18:48:37.278Z",
+      "name": "Test Location 4",
+      "location_name": "Delft",
+      "location_id": 10004
+    }
+  },
+  {
+    "model": "api.location",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-06-12T18:49:59.085Z",
+      "name": "Test Location 5",
+      "location_name": "Amsterdam",
+      "location_id": 10005
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-06-12T18:42:19.138Z",
+      "name": "Temperature",
+      "unit": "°C"
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-06-12T18:42:27.157Z",
+      "name": "Humidity",
+      "unit": "%"
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-06-12T18:42:43.702Z",
+      "name": "Air Pressure",
+      "unit": "hPa"
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-06-12T18:43:03.601Z",
+      "name": "Gas Resistance",
+      "unit": "Ohms"
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-06-12T18:43:10.673Z",
+      "name": "Altitude",
+      "unit": "m"
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-06-12T18:43:18.038Z",
+      "name": "Loudness",
+      "unit": "dB"
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-06-12T18:43:25.038Z",
+      "name": "Recording",
+      "unit": "wav"
+    }
+  },
+  {
+    "model": "api.sensor",
+    "pk": 8,
+    "fields": {
+      "created_at": "2024-06-12T18:43:30.879Z",
+      "name": "RPM",
+      "unit": "rpm"
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-06-12T18:43:52.147Z",
+      "name": "Test Device 1",
+      "device_id": 20001,
+      "register_interval": 30,
+      "loudness_threshold": 70,
+      "location": 1,
+      "sensors": [1, 2, 3, 4, 5, 6]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-06-12T18:47:04.718Z",
+      "name": "Test Device 2",
+      "device_id": 20002,
+      "register_interval": 30,
+      "loudness_threshold": 70,
+      "location": 1,
+      "sensors": [7]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-06-12T18:47:37.631Z",
+      "name": "Test Device 3",
+      "device_id": 20003,
+      "register_interval": 30,
+      "loudness_threshold": 70,
+      "location": 2,
+      "sensors": [1, 2, 3, 4, 5]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-06-12T18:48:04.945Z",
+      "name": "Test Device 4",
+      "device_id": 20004,
+      "register_interval": 30,
+      "loudness_threshold": 70,
+      "location": 3,
+      "sensors": [1, 2, 3, 4, 5, 6]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-06-12T18:48:39.212Z",
+      "name": "Test Device 5",
+      "device_id": 20005,
+      "register_interval": 30,
+      "loudness_threshold": 70,
+      "location": 4,
+      "sensors": [1, 2, 3, 4, 5, 6]
+    }
+  },
+  {
+    "model": "api.device",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-06-12T18:50:13.878Z",
+      "name": "Test Device 6",
+      "device_id": 20006,
+      "register_interval": 30,
+      "loudness_threshold": 70,
+      "location": 5,
+      "sensors": [1, 2, 3, 4, 5, 6]
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-06-12T20:02:43.980Z",
+      "value": 29.17,
+      "sensor": 1,
+      "location": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-06-12T20:02:43.986Z",
+      "value": 57.64,
+      "sensor": 2,
+      "location": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-06-12T20:02:43.989Z",
+      "value": 1004.46,
+      "sensor": 3,
+      "location": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 4,
+    "fields": {
+      "created_at": "2024-06-12T20:02:43.991Z",
+      "value": 66.06,
+      "sensor": 4,
+      "location": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 5,
+    "fields": {
+      "created_at": "2024-06-12T20:02:43.995Z",
+      "value": 73.27,
+      "sensor": 5,
+      "location": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 6,
+    "fields": {
+      "created_at": "2024-06-12T20:02:43.997Z",
+      "value": 74.0,
+      "sensor": 6,
+      "location": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.reading",
+    "pk": 7,
+    "fields": {
+      "created_at": "2024-06-12T20:02:44.000Z",
+      "value": 2731.0,
+      "sensor": 8,
+      "location": 1,
+      "device": 1
+    }
+  },
+  {
+    "model": "api.recording",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-06-12T20:01:56.497Z",
+      "file": "recordings/June_12_2024_-_20.01.mp3",
+      "location": 1,
+      "device": 2
     }
   }
 ]

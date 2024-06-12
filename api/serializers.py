@@ -29,45 +29,62 @@ class ReadingSerializer(ModelSerializer):
         fields = "__all__"
 
 
-class ReadingCreateSerializer(Serializer):
-    device_id = serializers.IntegerField(required=True)
-    sensors = serializers.JSONField(required=True)
-
-    class Meta:
-        fields = "__all__"
-
-    def validate_device_id(self, device_id):
-        try:
-            return models.Device.objects.get(device_id=device_id)
-        except Exception as e:
-            raise serializers.ValidationError(e)
-
-    def validate_sensors(self, sensors):
-        try:
-            return [models.Sensor.objects.get(id=sensor)
-                    for sensor in sensors]
-        except Exception as e:
-            raise serializers.ValidationError(e)
-
-
 class RecordingSerializer(ModelSerializer):
     class Meta:
         model = models.Recording
         fields = "__all__"
 
 
+class ReadingCreateSerializer(Serializer):
+    sensors = serializers.JSONField()
+    device_id = serializers.IntegerField()
+    location_id = serializers.IntegerField(required=False)
+
+    class Meta:
+        fields = "__all__"
+
+    def validate_sensors(self, sensors):
+        try:
+            if len(sensors) == 0:
+                raise serializers.ValidationError("No sensors provided")
+
+            return [models.Sensor.objects.get(id=sensor) for sensor in sensors]
+        except Exception as e:
+            raise serializers.ValidationError(e)
+
+    def validate_device_id(self, device_id):
+        try:
+            device = models.Device.objects.get(device_id=device_id)
+            self.location_id = device.location.pk
+            return device.pk
+        except Exception as e:
+            raise serializers.ValidationError(e)
+
+
 class RecordingCreateSerializer(Serializer):
-    device_id = serializers.IntegerField(required=True)
-    file = serializers.FileField(required=True)
+    file = serializers.FileField()
+    device_id = serializers.IntegerField()
+    location_id = serializers.IntegerField(required=False)
 
     class Meta:
         fields = "__all__"
 
     def validate_device_id(self, device_id):
         try:
-            return models.Device.objects.get(device_id=device_id)
+            device = models.Device.objects.get(device_id=device_id)
+            isOfType = list(device.sensors.filter(pk=7))
+
+            if len(isOfType) == 0:
+                raise serializers.ValidationError("Device type is not Recording")
+
+            self.location_id = device.location.pk
+            return device
         except Exception as e:
             raise serializers.ValidationError(e)
 
     def create(self, validated_data):
-        return models.Recording.objects.create(file=validated_data["file"], device=validated_data["device_id"])
+        return models.Recording.objects.create(
+            file=validated_data["file"],
+            device=validated_data["device_id"],
+            location_id=self.location_id,
+        )
