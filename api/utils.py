@@ -7,7 +7,7 @@ def applyEffects(byte_array):
     normalizedsound = effects.normalize(wav_audio)
 
     buffer = BytesIO()
-    normalizedsound.export(buffer, format="mp3")
+    normalizedsound.export(buffer, format="wav")
     byte_array = buffer.getvalue()
 
     return byte_array
