@@ -70,7 +70,7 @@ class RecordingViewSet(viewsets.ModelViewSet):
         try:
             recording = applyEffects(request.stream.body)
             recordingCreateSerializer = serializers.RecordingCreateSerializer(
-              data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y - %H.%M")}.wav"), "device_id": pk})
+              data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y - %H.%M")}.mp3"), "device_id": pk})
             recordingCreateSerializer.is_valid(raise_exception=True)
             recordingCreateSerializer.save()
 
