@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from api.utils import applyEffects
 from . import models, serializers
 
+
 def index(request):
     return render(request, 'index.html')
 
@@ -45,19 +46,19 @@ class ReadingViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ReadingSerializer
 
     def create(self, request):
-        readingCreateSerializer = serializers.ReadingCreateSerializer(
+        try:
+            readingCreateSerializer = serializers.ReadingCreateSerializer(
             data=request.data)
-        readingCreateSerializer.is_valid(raise_exception=True)
-        data = readingCreateSerializer.validated_data
+            readingCreateSerializer.is_valid(raise_exception=True)
+            data = readingCreateSerializer.validated_data
 
-        for sensor in data["sensors"]:
-            reading = models.Reading.objects.create(
+            for sensor in data["sensors"]:
+                reading = models.Reading.objects.create(
                 value=request.data["sensors"][f"{sensor.id}"], sensor=sensor, device_id=data["device_id"], location_id=readingCreateSerializer.location_id)
-            try:
                 reading.save()
-            except Exception as e:
-                return Response(data={"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+        except Exception as e:
+                return Response(data={"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         return Response(status=status.HTTP_201_CREATED)
 
 
@@ -66,14 +67,13 @@ class RecordingViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.RecordingSerializer
 
     def create(self, request, pk):
-        recording = applyEffects(request.stream.body)
-        recordingCreateSerializer = serializers.RecordingCreateSerializer(
-            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y - %H.%M")}.wav"), "device_id": pk})
-        recordingCreateSerializer.is_valid(raise_exception=True)
-
         try:
+            recording = applyEffects(request.stream.body)
+            recordingCreateSerializer = serializers.RecordingCreateSerializer(
+              data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y - %H.%M")}.wav"), "device_id": pk})
+            recordingCreateSerializer.is_valid(raise_exception=True)
             recordingCreateSerializer.save()
+
         except Exception as e:
             return Response(data={"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
         return Response(status=status.HTTP_201_CREATED)
