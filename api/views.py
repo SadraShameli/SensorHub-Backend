@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from api.utils import wav_byte_array_to_mp3_normalized
+from api.utils import applyEffects
 from . import models, serializers
 
 def index(request):
@@ -66,9 +66,9 @@ class RecordingViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.RecordingSerializer
 
     def create(self, request, pk):
-        recording = wav_byte_array_to_mp3_normalized(request.stream.body)
+        recording = applyEffects(request.stream.body)
         recordingCreateSerializer = serializers.RecordingCreateSerializer(
-            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y - %H.%M")}.mp3"), "device_id": pk})
+            data={"file": ContentFile(recording, name=f"{datetime.now().strftime("%B %d, %Y - %H.%M")}.wav"), "device_id": pk})
         recordingCreateSerializer.is_valid(raise_exception=True)
 
         try:
